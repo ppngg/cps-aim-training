@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPS Aim Trainer</title>
+    <meta name="description" content="Test your aim and speed in this 3D aim trainer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="PointerLockControls.js"></script>
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+
+    <!-- HUD Overlay -->
+    <div id="hud">
+        <div class="crosshair"></div>
+
+        <div class="top-bar">
+            <div class="stat-box">
+                <span class="label">Time</span>
+                <span class="value" id="time-display">30.0s</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Score</span>
+                <span class="value" id="score-display">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Accuracy</span>
+                <span class="value" id="accuracy-display">100%</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">CPS</span>
+                <span class="value" id="live-cps-display">0.00</span>
+            </div>
+        </div>
+
+        <div id="start-screen" class="overlay-screen">
+            <h1>CPS Aim Trainer</h1>
+            <div class="instructions">
+                <p>Click to start playing</p>
+            </div>
+            <div class="mode-select">
+                <button class="mode-btn active" data-time="10">10s</button>
+                <button class="mode-btn" data-time="20">20s</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="overlay-screen hidden">
+            <h2>Session Complete</h2>
+            <div class="final-stats">
+                <div class="stat-row">
+                    <span>Score</span>
+                    <span id="final-score" class="accent">0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Accuracy</span>
+                    <span id="final-accuracy">0%</span>
+                </div>
+                <div class="stat-row">
+                    <span>CPS</span>
+                    <span id="final-cps">0.00</span>
+                </div>
+            </div>
+            <button id="restart-btn" class="primary-btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Main Game Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
